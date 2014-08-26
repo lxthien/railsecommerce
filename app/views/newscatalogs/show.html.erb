@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Parentcat:</strong>
+  <%= @newscatalog.parentcat_id %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @newscatalog.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @newscatalog.description %>
+</p>
+
+<p>
+  <strong>Content:</strong>
+  <%= @newscatalog.content %>
+</p>
+
+<p>
+  <strong>Position:</strong>
+  <%= @newscatalog.position %>
+</p>
+
+<p>
+  <strong>Page description:</strong>
+  <%= @newscatalog.page_description %>
+</p>
+
+<p>
+  <strong>Page keyword:</strong>
+  <%= @newscatalog.page_keyword %>
+</p>
+
+<%= link_to 'Edit', edit_newscatalog_path(@newscatalog) %> |
+<%= link_to 'Back', newscatalogs_path %>

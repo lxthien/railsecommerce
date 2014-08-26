@@ -1,0 +1,11 @@
+# create 1 project with mysql
+rails new railsapp mysql
+
+#to create your database
+rake db:create db:migrate
+
+#create mvc
+rails generate scaffold Newscatalogs parentcat_id:integer name:string description:text content:text position:integer page_description:text page_keyword:text
+
+#and run migrate db
+bundle exec rake db:migrate
