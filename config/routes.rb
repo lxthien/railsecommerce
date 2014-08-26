@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  mount Mercury::Engine => '/'
+  Mercury::Engine.routes
+
+  root to: 'newscatalogs#index'
+  resources :newscatalogs do
+    member { post :mercury_update }
+  end
+
   resources :newscatalogs
 
   # The priority is based upon order of creation: first created -> highest priority.

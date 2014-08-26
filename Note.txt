@@ -9,3 +9,6 @@ rails generate scaffold Newscatalogs parentcat_id:integer name:string descriptio
 
 #and run migrate db
 bundle exec rake db:migrate
+
+#install bundle
+gem install bundler
