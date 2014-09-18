@@ -40,4 +40,24 @@ gem 'spring',        group: :development
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
-gem 'mercury-rails', :git => 'git://github.com/jejacks0n/mercury.git'
+#gem 'mercury-rails', :git => 'git://github.com/jejacks0n/mercury.git'
+
+# Resources inside your admin module
+gem 'inherited_resources', github: 'josevalim/inherited_resources'
+
+# Install haml
+gem "haml-rails"
+
+gem 'kaminari'
+gem 'has_scope', git: 'git://github.com/plataformatec/has_scope.git'
+
+# Install simple form
+gem 'simple_form', :git => 'git://github.com/plataformatec/simple_form.git'
+
+# Install devise
+#gem 'devise'
+
+# Install Paperclip to upload image
+gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
+
+gem 'tinymce-rails'

@@ -13,3 +13,118 @@
  *= require_tree .
  *= require_self
  */
+ body{
+ 	font-size: 13px;
+ 	background: #ccc;
+ }
+ .cl{
+ 	clear: both;
+ }
+ .fl{
+ 	float: left;
+ }
+ .fr{
+ 	float: right;
+ }
+.wrapper{
+	width: 980px;
+	margin: 0 auto;
+	background-color: #fff;
+}
+
+/*Header*/
+.header{
+	height: 100px;
+	width: 100%;
+	text-align: center;
+}
+
+/*Menu*/
+.menu{
+	height: 40px;
+	width: 100%;
+	background: #555;
+}
+.menu li{
+	float: left;
+	list-style: none;
+}
+.menu li a{
+	display: block;
+	padding: 11px 25px;
+	font-weight: 700;
+	color: #fff;
+}
+
+/*Main-conten*/
+.main-conten{
+	width: 980px;
+	margin: 0 auto;
+	float: left;
+	padding: 20px 0;
+}
+.main-conten .col-left{
+	width: 218px;
+	margin-right: 20px;
+	float: left;
+	border-right: 1px solid #ccc;
+}
+.main-conten .col-right{
+	width: 740px;
+	float: left;
+}
+
+/*Col left in main-conten*/
+.col-left h1{
+	width: 100%;
+	margin: 5px 0;
+}
+.col-left ul.menu-left li{
+	list-style: square;
+}
+
+/*Col right in main-conten*/
+.col-right h1{
+	width: 100%;
+	margin: 5px 0;
+}
+.col-right .list-news{
+	margin-right: 10px;
+    width: 730px;
+}
+.col-right .list-news .news-item{
+	border-bottom: 1px solid #e2e2e2;
+    padding: 5px 0;
+    width: 100%;
+}
+.col-right .list-news .news-item .news-item-img{
+	margin-right: 5px;
+    width: 150px;
+}
+.col-right .list-news .news-item .news-item-info{
+    width: 575px;
+}
+.list-news .news-item .news-item-info a{
+	text-decoration: none;
+	font-weight: 700;
+	color: #000;
+}
+.list-news .news-item .news-item-info a:hover{
+	text-decoration: underline;
+	background: #fff;
+}
+.list-news .news-item .news-item-info p{
+	margin: 0;
+	padding: 3px 0;
+}
+
+/*Footer*/
+.footer{
+	background: #555;
+	width: 980px;
+	margin: 0 auto;
+	text-align: center;
+	height: 150px;
+	border-top: 5px solid yellow;
+	color: #fff;
+}

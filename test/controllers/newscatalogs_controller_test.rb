@@ -18,7 +18,7 @@ class NewscatalogsControllerTest < ActionController::TestCase
 
   test "should create newscatalog" do
     assert_difference('Newscatalog.count') do
-      post :create, newscatalog: { content: @newscatalog.content, description: @newscatalog.description, name: @newscatalog.name, page_description: @newscatalog.page_description, page_keyword: @newscatalog.page_keyword, parentcat_id: @newscatalog.parentcat_id, position: @newscatalog.position }
+      post :create, newscatalog: { description: @newscatalog.description, name: @newscatalog.name, page_description: @newscatalog.page_description, page_keyword: @newscatalog.page_keyword, page_title: @newscatalog.page_title, parentcat_id: @newscatalog.parentcat_id, position: @newscatalog.position, url: @newscatalog.url }
     end
 
     assert_redirected_to newscatalog_path(assigns(:newscatalog))
@@ -35,7 +35,7 @@ class NewscatalogsControllerTest < ActionController::TestCase
   end
 
   test "should update newscatalog" do
-    patch :update, id: @newscatalog, newscatalog: { content: @newscatalog.content, description: @newscatalog.description, name: @newscatalog.name, page_description: @newscatalog.page_description, page_keyword: @newscatalog.page_keyword, parentcat_id: @newscatalog.parentcat_id, position: @newscatalog.position }
+    patch :update, id: @newscatalog, newscatalog: { description: @newscatalog.description, name: @newscatalog.name, page_description: @newscatalog.page_description, page_keyword: @newscatalog.page_keyword, page_title: @newscatalog.page_title, parentcat_id: @newscatalog.parentcat_id, position: @newscatalog.position, url: @newscatalog.url }
     assert_redirected_to newscatalog_path(assigns(:newscatalog))
   end
 

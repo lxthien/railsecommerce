@@ -7,8 +7,44 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<%= yield %>
-
+<div class="wrapper">
+	<div class="header">
+		<h3>Header</h3>
+	</div>
+	<div class="cl"></div>
+	<div class="menu">
+		<ul class="nav">
+			<li><a href="#">Home</a></li>
+			<li><a href="#">About us</a></li>
+			<li><a href="#">News</a></li>
+			<li><a href="#">Product</a>
+				<ul class="nav-01">
+					<li><a href="#">Iphone</a></li>
+					<li><a href="#">Iphone</a></li>
+					<li><a href="#">Iphone</a></li>
+					<li><a href="#">Iphone</a></li>
+				</ul>
+			</li>
+		</ul>
+	</div>
+	<div class="cl"></div>
+	<div class="main-conten">
+		<div class="col-left">
+			<h1 class="fl">List category</h1>
+			<ul class="menu-left fl">
+				<% @newscatalogs.each do |newscatalog| %>
+				<li><a href=""><%= newscatalog.name %></a></li>
+				<% end %>
+			</ul>
+		</div>
+		<div class="col-right">
+			<%= yield %>
+		</div>
+	</div>
+	<div class="cl"></div>
+	<div class="footer">
+		<h3>Footer</h3>
+	</div>
+</div>
 </body>
 </html>

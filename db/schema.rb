@@ -11,13 +11,52 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140826041442) do
+ActiveRecord::Schema.define(version: 20140917084546) do
+
+  create_table "news", force: true do |t|
+    t.integer  "newscatalog_id"
+    t.string   "title"
+    t.string   "url"
+    t.text     "description"
+    t.text     "content"
+    t.string   "images"
+    t.boolean  "active"
+    t.boolean  "recycle"
+    t.boolean  "isComment"
+    t.boolean  "isHot"
+    t.string   "tag"
+    t.integer  "position"
+    t.text     "page_title"
+    t.text     "page_description"
+    t.text     "page_keyword"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "images_file_name"
+    t.string   "images_content_type"
+    t.integer  "images_file_size"
+    t.datetime "images_updated_at"
+  end
 
   create_table "newscatalogs", force: true do |t|
     t.integer  "parentcat_id"
     t.string   "name"
+    t.string   "url"
     t.text     "description"
-    t.text     "content"
+    t.integer  "position"
+    t.text     "page_title"
+    t.text     "page_description"
+    t.text     "page_keyword"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "productcats", force: true do |t|
+    t.integer  "parentcat_id"
+    t.string   "name"
+    t.string   "url"
+    t.text     "description"
+    t.string   "images"
+    t.boolean  "isHot"
     t.integer  "position"
     t.text     "page_description"
     t.text     "page_keyword"

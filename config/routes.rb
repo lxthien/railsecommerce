@@ -1,13 +1,25 @@
 Rails.application.routes.draw do
-  mount Mercury::Engine => '/'
-  Mercury::Engine.routes
+  #devise_for :users
+  resources :productcats
 
-  root to: 'newscatalogs#index'
-  resources :newscatalogs do
-    member { post :mercury_update }
-  end
-
+  resources :news
   resources :newscatalogs
+
+  #resources :newscatalogs do
+  #  member { post :mercury_update }
+  #end
+
+  root to: 'index#index'
+
+  namespace :admin do
+    root to: "productcats#index"
+    resources :productcats do
+      post :deactivate_widgets
+    end
+    resources :widgets
+    resources :newscatalogs
+    resources :news
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -63,4 +75,7 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+
+  get '/category/:any' => 'index#category'
+
 end
