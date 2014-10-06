@@ -1,41 +1,100 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Railsapp</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
+	<title><%= @page_title %></title>
+  	<meta name="description" content="<%= @page_description %>"/>
+	<meta name="keywords" content="<%= @page_keyword %>"/>
+
+  	<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  	<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  	<%= csrf_meta_tags %>
 </head>
 <body>
+<div class="login-header">
+	<div class="main-login-header">
+		<% if !current_user %>
+		<%= link_to 'Sign in',  login_path %><%= link_to 'Sign up', sign_up_path %>
+		<% else %>
+		<%= link_to current_user.lastname + ' ' + current_user.firstname ,   account_path %><%= link_to 'Logout',  logout_path %>
+		<% end %>
+	</div>
+</div>
 <div class="wrapper">
 	<div class="header">
-		<h3>Header</h3>
+		<div class="logo">
+			<%= link_to image_tag('logo-mobell1.png'), root_url %>
+		</div>
+		<div class="search">
+			<input type="text" value="" name="value" placeholder="Search product" />
+		</div>
 	</div>
 	<div class="cl"></div>
 	<div class="menu">
 		<ul class="nav">
-			<li><a href="#">Home</a></li>
-			<li><a href="#">About us</a></li>
-			<li><a href="#">News</a></li>
-			<li><a href="#">Product</a>
+			<li class="home"><%= link_to image_tag('home.png'), root_url, :class => @menu_active == 'home' ? 'menu_active' : '' %></li>
+			<li><a href="<%= root_url+'telephone' %>">Telephone</a>
 				<ul class="nav-01">
-					<li><a href="#">Iphone</a></li>
-					<li><a href="#">Iphone</a></li>
-					<li><a href="#">Iphone</a></li>
-					<li><a href="#">Iphone</a></li>
+					<% @productcattelephones.each do |productcattelephone| %>
+					<li><a href="<%= root_url+'telephone/'+productcattelephone.url %>"><%= productcattelephone.name %></a></li>
+					<% end %>
 				</ul>
 			</li>
+			<li><a href="<%= root_url+'shopcollections' %>">Shop Collection</a>
+				<ul class="nav-01">
+					<% @shopcollections.each do |shopcollection| %>
+					<li><a href="<%= root_url+'shopcollections/'+shopcollection.url %>"><%= shopcollection.name %></a></li>
+					<% end %>
+				</ul>
+			</li>
+			<li><%= link_to 'About us', root_url+'about-us', :class => @menu_active == 'about-us' ? 'menu_active' : '' %></li>
+			<li><%= link_to 'News', root_url+'category/news', :class => @menu_active == 'news' ? 'menu_active' : '' %></li>
+			<li><%= link_to 'Services', root_url+'category/services', :class => @menu_active == 'services' ? 'menu_active' : '' %></li>
 		</ul>
 	</div>
 	<div class="cl"></div>
 	<div class="main-conten">
 		<div class="col-left">
-			<h1 class="fl">List category</h1>
-			<ul class="menu-left fl">
-				<% @newscatalogs.each do |newscatalog| %>
-				<li><a href=""><%= newscatalog.name %></a></li>
-				<% end %>
-			</ul>
+			<% if params[:controller] != 'users' %>
+				<h1 class="fl">
+					<span>Telephone</span>
+				</h1>
+				<ul class="menu-left fl">
+					<% @productcattelephones.each do |productcattelephone| %>
+					<li><a href="<%= root_url+'telephone/'+productcattelephone.url %>"><%= productcattelephone.name %></a></li>
+					<% end %>
+				</ul>
+
+				<div class="cl"></div>
+
+				<h1 class="fl">
+					<span>Shop Collection</span>
+				</h1>
+				<ul class="menu-left fl">
+					<% @shopcollections.each do |shopcollection| %>
+					<li><a href="<%= root_url+'shopcollections/'+shopcollection.url %>"><%= shopcollection.name %></a></li>
+					<% end %>
+				</ul>
+
+				<div class="cl"></div>
+
+				<h1 class="menu-left fl">
+					<span>Advertising</span>
+				</h1>
+				<div class="main-advertising fl">
+					<%= image_tag('adverting.gif') %>
+				</div>
+			<% else %>
+				<div class="nav-user">
+					<h1 class="fl">
+						<span>My Account</span>
+					</h1>
+					<ul class="menu-left fl">
+						<li><a href="#">Personal data</a></li>
+						<li><a href="#">Address</a></li>
+						<li><a href="#">Order</a></li>
+					</ul>
+				</div>
+			<% end %>
 		</div>
 		<div class="col-right">
 			<%= yield %>

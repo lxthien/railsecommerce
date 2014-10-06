@@ -1,13 +1,10 @@
 Rails.application.routes.draw do
-  #devise_for :users
-  resources :productcats
+  get 'sessions/new'
 
+  resources :productcats
+  resources :users
   resources :news
   resources :newscatalogs
-
-  #resources :newscatalogs do
-  #  member { post :mercury_update }
-  #end
 
   root to: 'index#index'
 
@@ -16,9 +13,12 @@ Rails.application.routes.draw do
     resources :productcats do
       post :deactivate_widgets
     end
+    resources :products
     resources :widgets
     resources :newscatalogs
     resources :news
+
+    get 'productcats/:id/list_by_cat' => 'productcats#list_by_cat'
   end
 
   # The priority is based upon order of creation: first created -> highest priority.
@@ -76,6 +76,28 @@ Rails.application.routes.draw do
   #     resources :products
   #   end
 
-  get '/category/:any' => 'index#category'
+  # Router for account
+  match '/login' => 'sessions#new', :via => [:get], :as => :login
+  match '/logout' => 'sessions#destroy', :via => [:get], :as => :logout
+  post '/sessions/create' => 'sessions#create'
+  get '/sign-up' => 'users#new'
+  match '/account' => 'users#account', :via => [:get], :as => :account
+  match '/edit-profile' => 'users#edit', :via => [:get], :as => :edit_profile
+  post '/users/update' => 'users#update'
+
+  get '/category/:url' => 'news#index'
+  match '/about-us' => 'index#aboutus', :via => [:GET], :as => :about_us
+
+
+  get '/telephone' => 'products#getListTelephone'
+  get '/telephone/:url' => 'products#getListProductsByCat'
+
+  get '/shopcollections' => 'products#getListCollection'
+  get '/shopcollections/:url' => 'products#getListProductsByCat'
+
+  # Router for shopping cart
+  get 'cart' => 'cart#index', :as => 'cart_index'
+  get 'cart/add/:id' => 'cart#add', :as => 'cart_add'
+  delete 'cart/remove(/:id(/:all))' => 'cart#delete', :as => 'cart_delete'
 
 end

@@ -15,3 +15,7 @@
 //= require turbolinks
 //= require newscatalogs
 //= require tinymce-jquery
+
+jQuery(document).ready(function(){
+	//alert(1);
+})
