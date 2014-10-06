@@ -11,6 +11,7 @@ class ApplicationController < ActionController::Base
   private
   def set_my_variables
   	@newscatalogs = Newscatalog.all
+    
 
     @productcattelephones = Productcat.where(parentcat_id: 1);
     @shopcollections = Productcat.where(parentcat_id: 2);
