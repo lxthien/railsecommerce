@@ -1,0 +1,24 @@
+<div class="account">
+	<div class="main-title-col-right">
+		<h2>My Account</h2>
+		<span><%= @users.lastname + ' ' + @users.firstname %></span>
+	</div>
+	<div class="account-option">
+		<ul>
+			<li>
+				<%= link_to edit_profile_path do %>
+					<span>Personal data</span>
+				<% end %>
+				<span>Show or update your personal data</span>
+			</li>
+			<li>
+				<a href="#"><span>Address</span></a>
+				<span>Manager your billing ans shipping address</span>
+			</li>
+			<li>
+				<a href="#"><span>Order</span></a>
+				<span>Check the status of your orders or see past orders</span>
+			</li>
+		</ul>
+	</div>
+</div>

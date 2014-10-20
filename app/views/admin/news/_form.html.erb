@@ -1,0 +1,72 @@
+<%= form_for(@news) do |f| %>
+  <% if @news.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@news.errors.count, "error") %> prohibited this news from being saved:</h2>
+
+      <ul>
+      <% @news.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :newscatalog_id %><br>
+    <% cities_array = @newscatalogs.map { |newscategory| [newscategory.name, newscategory.id] } %>
+	<%= f.select(:newscatalog_id, options_for_select(cities_array)) %>
+  </div>
+  <div class="field">
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :url %><br>
+    <%= f.text_field :url %>
+  </div>
+  <div class="field">
+    <%= f.label :images %><br>
+    <%= image_tag(@news.images.url, width: 80, height: 80) %>
+    <%= f.file_field :images %>
+  </div>
+  <div class="field">
+    <%= f.label :isHot %><br>
+    <%= f.check_box :isHot %>
+  </div>
+  <div class="field">
+    <%= f.label :isComment %><br>
+    <%= f.check_box :isComment %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_area :description %>
+  </div>
+  <div class="field">
+    <%= f.label :content %><br>
+    <%= f.text_area :content, :class => "tinymce", :rows => 40, :cols => 120 %>
+  </div>
+  <div class="field">
+    <%= f.label :position %><br>
+    <%= f.number_field :position %>
+  </div>
+  <div class="field">
+    <%= f.label :tag %><br>
+    <%= f.text_field :tag %>
+  </div>
+  <div class="field">
+    <%= f.label :page_title %><br>
+    <%= f.text_field :page_title %>
+  </div>
+  <div class="field">
+    <%= f.label :page_description %><br>
+    <%= f.text_area :page_description %>
+  </div>
+  <div class="field">
+    <%= f.label :page_keyword %><br>
+    <%= f.text_area :page_keyword %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+<%= tinymce %>

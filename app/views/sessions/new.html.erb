@@ -1,0 +1,20 @@
+<div class="main-title-col-right">
+	<h2>Login</h2>
+</div>
+<div class="main-product product-new fl">
+	<%= form_tag "sessions/create" do %>
+
+	<%= label_tag :email %><br>
+	<%= email_field_tag :email, params[:email] %>
+	<br>
+	
+
+	<%= label_tag :password %><br>
+	<%= password_field_tag :password, params[:password] %>
+
+	<br>
+	<br>
+	<%= submit_tag "Login", :class => "btn btn-primary" %>
+
+	<% end %>
+</div>

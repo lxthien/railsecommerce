@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  parentcat_id: 1
+  name: MyString
+  url: MyString
+  description: MyText
+  content: MyText
+  position: 1
+  page_title: MyText
+  page_description: MyText
+  page_keyword: MyText
+
+two:
+  parentcat_id: 1
+  name: MyString
+  url: MyString
+  description: MyText
+  content: MyText
+  position: 1
+  page_title: MyText
+  page_description: MyText
+  page_keyword: MyText

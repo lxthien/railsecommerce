@@ -365,6 +365,21 @@
 	padding-bottom: 5px; margin-bottom: 20px;}
 
 
+.account .edit-profile form fieldset{border: none;}
+
+.account .edit-profile form .field label{
+	line-height: 25px;
+}
+.account .edit-profile form .field input[type="text"], .account .edit-profile form .field input[type="password"]{
+	border: 1px solid #e2e2e2; border-radius: 3px; padding: 3px 0 3px 5px; width: 350px;}
+.account .edit-profile form input.btn{background: none repeat scroll 0 0 #555555; border: medium none; color: #fff;
+    font-weight: 400; padding: 5px 20px; text-transform: uppercase; cursor: pointer;}
+
+#error_explanation{background-color: #f0f0f0; border: 1px solid red; margin-bottom: 20px;
+	padding: 0; width: 500px;}
+#error_explanation h2{margin: 0;}
+#error_explanation ul li{margin-left: 15px; list-style: none;}
+
 /*Footer*/
 .footer{
 	background: #555;

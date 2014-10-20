@@ -1,0 +1,26 @@
+<h1 class="news-title">
+  <%= @news.title %>
+</h1>
+<div class="news-content">
+  <%= @news.content.html_safe %>
+</div>
+<div class="cl"></div>
+<div class="tags">
+  <%= @news.tag %>
+</div>
+<div class="cl"></div>
+<div class="news-related">
+  <h2>News Related</h2>
+  <ul>
+    <%
+      @news_related.each do |news|
+        if( news.id != @news.id )
+        %>
+
+    <li><%= link_to news.title, news, :class => 'news-title-related' %></li>
+    <% 
+      end
+    end
+    %>
+  </ul>
+</div>

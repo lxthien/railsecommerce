@@ -1,0 +1,35 @@
+<h1>Listing news</h1>
+<%= link_to 'New News', new_admin_news_path %>
+<br><br>
+<hr>
+<table class="admin-list" >
+  <thead>
+    <tr>
+    	<th width="3%">No.</th>
+    	<th width="7%">Images</th>
+    	<th width="30%" class="tl">Title</th>
+      <th width="15%">Category</th>
+      <th width="5%">Position</th>
+      <th width="5%">Hot</th>
+      <th width="10%" colspan="3">Action</th>
+    </tr>
+  </thead>
+
+  <tbody>
+  	<% count = 0 %>
+    <% @news.each do |news| %>
+      	<% count = count +1 %>
+      	<tr>
+      		<td><%= count %></td>
+      		<td><%= image_tag(news.images.url, :size => "50x50") %></td>
+      		<td><%= news.title %></td>
+	        <td><%= news.newscatalog.name %></td>
+	        <td><div class="tcenter"><%= news.position %></div></td>
+	        <td><%= check_box_tag 'isHot[]', news.isHot, news.isHot %></td>
+	        <td><%= link_to 'Show', news %></td>
+	        <td><%= link_to 'Edit', edit_admin_news_path(news) %></td>
+	        <td><%= link_to 'Destroy', admin_news_path(news), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      	</tr>
+    <% end %>
+  </tbody>
+</table>

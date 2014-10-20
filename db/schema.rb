@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 20140925094101) do
     t.string   "url"
     t.text     "description"
     t.text     "content"
+    t.string   "images"
     t.boolean  "active"
     t.boolean  "recycle"
     t.boolean  "isComment"

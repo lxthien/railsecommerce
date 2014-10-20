@@ -1,0 +1,29 @@
+<div class="main-title-col-right">
+	<h2>Search</h2>
+</div>
+<div class="main-product product-new fl">
+	<%
+		columnCount = 5
+		i = 0
+	%>
+	<% @products.each do |products| %>
+	<% if i % columnCount == 0 %>
+		<ul>
+		<% end %>
+		<% i = i + 1 %>
+			<li>
+				<div class="img-product">
+					<a title="<%= products.name %>" href="#"><%= image_tag show_url_images(products.id), :size => "120x120" %></a>
+				</div>
+				<a href="#" class="name-product" title="<%= products.name %>">
+					<%= products.name %>
+				</a>
+				<div class="price-product">
+					$<%= products.price %>
+				</div>
+			</li>
+		<% if i % columnCount == 0 %>
+		</ul>
+	<% end %>
+	<% end %>
+</div>

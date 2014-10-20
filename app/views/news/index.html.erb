@@ -1,0 +1,14 @@
+<h1><%= @category.name %></h1>
+<div class="list-news cl">
+  <% @news.each do |news| %>
+  <div class="news-item fl">
+    <div class="news-item-img fl">
+      <img src="<%= news.images.url %>">
+    </div>
+    <div class="news-item-info fl">
+      <%= link_to news.title, news, :class => 'news-title' %>
+      <p><%= news.description %></p>
+    </div>
+  </div>
+  <% end %>
+</div>

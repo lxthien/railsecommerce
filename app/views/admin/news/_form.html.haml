@@ -1,0 +1,25 @@
+= simple_form_for(@news, :html => { :multipart => true }) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :newscatalog_id
+    = f.input :title
+    = f.input :url
+
+    .cl
+    %label Images
+    = file_field(:news, :images)
+    .cl
+
+    = f.input :isHot
+    = f.input :isComment
+    = f.input :description
+    = f.input :content
+    = f.input :tag
+    = f.input :position
+    = f.input :page_title
+    = f.input :page_description
+    = f.input :page_keyword
+
+  .form-actions
+    = f.button :submit

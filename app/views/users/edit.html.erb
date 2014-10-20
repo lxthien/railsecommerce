@@ -1,0 +1,48 @@
+<div class="account">
+	<div class="main-title-col-right">
+		<h2>My Account</h2>
+		<span>Edit Profile</span>
+	</div>
+	<div class="edit-profile">
+		<%= form_for(@users) do |f| %>
+			<% if @users.errors.any? %>
+			    <div id="error_explanation">
+			    	<h2><%= pluralize(@users.errors.count, "error") %> prohibited this users from being saved:</h2>
+
+			      	<ul>
+			      		<% @users.errors.full_messages.each do |message| %>
+			        	<li><%= message %></li>
+			      		<% end %>
+			      	</ul>
+			    </div>
+			<% end %>
+			<fieldset class="first">
+				<h2 class="h2-create-account">Name</h2>
+				<div class="field">
+				    <%= f.label :firstname %><br>
+				    <%= f.text_field :firstname %>
+				</div>
+				<div class="field">
+				    <%= f.label :lastname %><br>
+				    <%= f.text_field :lastname %>
+				</div>
+			</fieldset>
+			<fieldset class="second">
+				<h2 class="h2-create-account">Email/Login Information</h2>
+				<div class="field">
+				    <%= f.label :email %><br>
+				    <%= f.text_field :email %>
+				</div>
+				<div class="field">
+				    <%= f.label :password %><br>
+				    <%= f.password_field :password %>
+				</div>
+				<div class="field">
+				    <%= f.label :password_confirmation %><br>
+				    <%= f.password_field :password_confirmation %>
+				</div>
+				<%= submit_tag "Update", :class => "btn btn-primary" %>
+			</fieldset>
+		<% end %>
+	</div>
+</div>

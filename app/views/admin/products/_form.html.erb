@@ -1,0 +1,72 @@
+<%= form_for(@products) do |f| %>
+  <% if @products.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@products.errors.count, "error") %> prohibited this products from being saved:</h2>
+
+      <ul>
+      <% @products.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :productcat_id %><br>
+    <% productcats_array = @productcats.map { |productcat| [productcat.name, productcat.id] } %>
+	<%= f.select(:productcat_id, options_for_select(productcats_array)) %>
+  </div>
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :images %><br>
+    <%= image_tag(@products.images.url, width: 80, height: 80) %>
+    <%= f.file_field :images %>
+  </div>
+  <div class="field">
+    <%= f.label :price %><br>
+    <%= f.text_field :price %>
+  </div>
+  <div class="field">
+    <%= f.label :promotionPrice %><br>
+    <%= f.text_field :promotionPrice %>
+  </div>
+  <div class="field">
+    <%= f.label :isHot %><br>
+    <%= f.check_box :isHot %>
+  </div>
+  <div class="field">
+    <%= f.label :isNew %><br>
+    <%= f.check_box :isNew %>
+  </div>
+  <div class="field">
+    <%= f.label :isSale %><br>
+    <%= f.check_box :isSale %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_area :description %>
+  </div>
+  <div class="field">
+    <%= f.label :detail %><br>
+    <%= f.text_area :detail, :class => "tinymce", :rows => 40, :cols => 120 %>
+  </div>
+  <div class="field">
+    <%= f.label :page_title %><br>
+    <%= f.text_field :page_title %>
+  </div>
+  <div class="field">
+    <%= f.label :page_description %><br>
+    <%= f.text_area :page_description %>
+  </div>
+  <div class="field">
+    <%= f.label :page_keyword %><br>
+    <%= f.text_area :page_keyword %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+<%= tinymce %>

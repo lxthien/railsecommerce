@@ -1,0 +1,35 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  newscatalog_id: 1
+  title: MyString
+  url: MyString
+  description: MyText
+  content: MyText
+  images: MyString
+  active: false
+  recycle: false
+  isComment: false
+  isHot: false
+  tag: MyString
+  position: 1
+  page_title: MyText
+  page_description: MyText
+  page_keyword: MyText
+
+two:
+  newscatalog_id: 1
+  title: MyString
+  url: MyString
+  description: MyText
+  content: MyText
+  images: MyString
+  active: false
+  recycle: false
+  isComment: false
+  isHot: false
+  tag: MyString
+  position: 1
+  page_title: MyText
+  page_description: MyText
+  page_keyword: MyText

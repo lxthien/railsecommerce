@@ -12,6 +12,7 @@
 <body>
 <div class="login-header">
 	<div class="main-login-header">
+		<%= link_to 'Cart (2)',  login_path %>
 		<% if !current_user %>
 		<%= link_to 'Sign in',  login_path %><%= link_to 'Sign up', sign_up_path %>
 		<% else %>
@@ -25,7 +26,9 @@
 			<%= link_to image_tag('logo-mobell1.png'), root_url %>
 		</div>
 		<div class="search">
+			<%= form_tag "products/search", :method => 'get' do %>
 			<input type="text" value="" name="value" placeholder="Search product" />
+			<% end %>
 		</div>
 	</div>
 	<div class="cl"></div>
@@ -89,7 +92,7 @@
 						<span>My Account</span>
 					</h1>
 					<ul class="menu-left fl">
-						<li><a href="#">Personal data</a></li>
+						<li><%= link_to 'Personal data', edit_profile_path %></li>
 						<li><a href="#">Address</a></li>
 						<li><a href="#">Order</a></li>
 					</ul>

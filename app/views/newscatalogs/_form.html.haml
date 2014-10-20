@@ -1,0 +1,15 @@
+= simple_form_for(@newscatalog) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :parentcat_id
+    = f.input :name
+    = f.input :url
+    = f.input :description
+    = f.input :position
+    = f.input :page_title
+    = f.input :page_description
+    = f.input :page_keyword
+
+  .form-actions
+    = f.button :submit

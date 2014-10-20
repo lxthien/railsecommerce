@@ -1,0 +1,39 @@
+<h1>Listing Products</h1>
+<%= link_to 'New Products', new_admin_product_path %>
+<br><br>
+<hr>
+<table class="admin-list" >
+  <thead>
+    <tr>
+    	<th width="3%">No.</th>
+    	<th width="7%">Images</th>
+    	<th width="30%" class="tl">Name</th>
+    	<th width="10%">Price</th>
+      	<th width="15%">Category</th>
+      	<th width="5%">New</th>
+      	<th width="5%">Hot</th>
+      	<th width="5%">Sale</th>
+      	<th width="10%" colspan="3">Action</th>
+    </tr>
+  </thead>
+
+  <tbody>
+  	<% count = 0 %>
+    <% @products.each do |products| %>
+      	<% count = count +1 %>
+      	<tr>
+      		<td><%= count %></td>
+      		<td><%= image_tag(products.images.url, :size => "50x50") %></td>
+      		<td><%= products.name %></td>
+      		<td>$<%= products.price %></td>
+	        <td><%= products.productcat.name %></td>
+	        <td><%= check_box_tag 'isNew[]', products.isNew, products.isNew %></td>
+	        <td><%= check_box_tag 'isHot[]', products.isHot, products.isHot %></td>
+	        <td><%= check_box_tag 'isSale[]', products.isSale, products.isSale %></td>
+	        <td><%= link_to 'Show', products %></td>
+	        <td><%= link_to 'Edit', edit_admin_product_path(products) %></td>
+	        <td><%= link_to 'Destroy', admin_product_path(products), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      	</tr>
+    <% end %>
+  </tbody>
+</table>

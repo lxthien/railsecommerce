@@ -89,8 +89,8 @@ Rails.application.routes.draw do
   match '/about-us' => 'index#aboutus', :via => [:GET], :as => :about_us
 
 
-  get '/telephone' => 'products#getListTelephone'
-  get '/telephone/:url' => 'products#getListProductsByCat'
+  match '/telephone' => 'products#getListTelephone', :via => [:GET], :as => :telephone
+  match '/telephone/:url' => 'products#getListProductsByCat', :via => [:GET]
 
   get '/shopcollections' => 'products#getListCollection'
   get '/shopcollections/:url' => 'products#getListProductsByCat'
@@ -99,5 +99,7 @@ Rails.application.routes.draw do
   get 'cart' => 'cart#index', :as => 'cart_index'
   get 'cart/add/:id' => 'cart#add', :as => 'cart_add'
   delete 'cart/remove(/:id(/:all))' => 'cart#delete', :as => 'cart_delete'
+
+  get '/products/search' => 'products#search'
 
 end

@@ -1,0 +1,33 @@
+%h1 Listing newscatalogs
+
+%table
+  %tr
+    %th Parentcat
+    %th Name
+    %th Url
+    %th Description
+    %th Position
+    %th Page title
+    %th Page description
+    %th Page keyword
+    %th
+    %th
+    %th
+
+  - @newscatalogs.each do |newscatalog|
+    %tr
+      %td= newscatalog.parentcat_id
+      %td= newscatalog.name
+      %td= newscatalog.url
+      %td= newscatalog.description
+      %td= newscatalog.position
+      %td= newscatalog.page_title
+      %td= newscatalog.page_description
+      %td= newscatalog.page_keyword
+      %td= link_to 'Show', newscatalog
+      %td= link_to 'Edit', edit_newscatalog_path(newscatalog)
+      %td= link_to 'Destroy', newscatalog, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Newscatalog', new_newscatalog_path

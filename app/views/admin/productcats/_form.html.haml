@@ -1,0 +1,8 @@
+<h2>Edit productcats</h2>
+= simple_form_for [ :admin, resource ] do |f|
+  %fieldset
+    - attributes.each do |attr|
+      = f.input attr
+  .actions
+    = f.submit :class => "btn primary"
+    %button.btn{:type => "reset"} Cancel

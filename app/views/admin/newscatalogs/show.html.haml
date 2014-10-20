@@ -1,0 +1,30 @@
+%p#notice= notice
+
+%p
+  %b Parentcat:
+  = @newscatalogs.parentcat_id
+%p
+  %b Name:
+  = @newscatalogs.name
+%p
+  %b Url:
+  = @newscatalogs.url
+%p
+  %b Description:
+  = @newscatalogs.description
+%p
+  %b Position:
+  = @newscatalogs.position
+%p
+  %b Page title:
+  = @newscatalogs.page_title
+%p
+  %b Page description:
+  = @newscatalogs.page_description
+%p
+  %b Page keyword:
+  = @newscatalogs.page_keyword
+
+= link_to 'Edit', edit_admin_newscatalog_path(@newscatalogs)
+\|
+= link_to 'Back', admin_newscatalogs_path
