@@ -5,15 +5,15 @@ application up and running.
 
 Things you may want to cover:
 
-* Ruby version
+* Ruby version: 4
 
 * System dependencies
 
 * Configuration
 
-* Database creation
+* Database creation: Mysql
 
-* Database initialization
+* Database initialization: Mysql
 
 * How to run the test suite
 
